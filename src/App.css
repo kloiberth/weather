@@ -1,0 +1,41 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card{
+  background-color: rgb(169, 169, 169, 0.5);
+  box-shadow: 2px 2px 8px rgb(0 , 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 1rem;
+  
+}
+
+.card>h1{
+
+}
+
+.card>h1+h2{
+
+}
+
+.img-climate{
+  width: 115px;
+  height: 115px;
+}
+
+.btn-change{
+  width: 8rem;
+  height: 2rem;
+  border: none;
+  border-radius: 10px;
+}
+
