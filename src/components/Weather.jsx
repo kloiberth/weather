@@ -24,8 +24,6 @@ const Weather = () => {
         navigator.geolocation.getCurrentPosition(success);
     }, []);
 
-    console.log(weather);
-
     const kelvin = weather.main?.feels_like;
     
     let gradeF =  ((kelvin - 273.15) * 9/5 + 32).toFixed(2); 
