@@ -28,17 +28,35 @@ const Weather = () => {
 
     const kelvin = weather.main?.feels_like;
     
-    let gradeF =  Math.round((kelvin - 273.15) * 9/5 + 32); 
+    let gradeF =  ((kelvin - 273.15) * 9/5 + 32).toFixed(2); 
 
-    let celsius = Math.round((gradeF - 32) * 5/9);
+    let celsius = ((gradeF - 32) * 5/9).toFixed(2);
     
 
     return (
         <div className="card flex">
-            <h1>{weather.name}, {weather.sys?.country}</h1>
+            <h1>
+                <i className="fa-solid fa-location-dot"></i>
+                {weather.name}, {weather.sys?.country}
+                </h1>
             <h2>{weather.weather?.[0].main}</h2>
             <img src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`} alt="`climate" className="img-climate"/>
-            <p>{isFahrenheit? gradeF: celsius} {isFahrenheit? "°F": "°C"}</p>
+
+            <div className="container-info">
+            <p className="flex-i">
+                <i className="fa-solid fa-temperature-three-quarters i"></i>
+               <span>temp:</span> {isFahrenheit? gradeF: celsius} {isFahrenheit? "°F": "°C"}
+            </p>
+            <p className="flex-i">
+            <i className="fa-solid fa-droplet i"></i>
+            <span>humidity:</span> {weather.main?.humidity}%
+            </p>
+            <p className="flex-i">
+                <i className="fa-solid fa-wind i"></i>
+                <span>wind speed:</span> {(weather.wind?.speed * 3.6).toFixed(2)} kph
+            </p>
+            </div>
+
             <ChangeGrade isFahrenheit={isFahrenheit} setIsFahrenheit={setIsFahrenheit}/>
         </div>
     );
